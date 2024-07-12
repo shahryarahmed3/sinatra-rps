@@ -13,7 +13,7 @@ get("/rock") do
   decision = ""
   if (random_number == 1)
     move = "rock"
-    decision = "tie"
+    decision = "tied"
   elsif (random_number == 2)
     move = "paper"
     decision = "lost"
@@ -37,7 +37,7 @@ get("/paper") do
     decision = "won"
   elsif (random_number == 2)
     move = "paper"
-    decision = "tie"
+    decision = "tied"
   elsif (random_number == 3)
     move = "scissors"
     decision = "lost"
@@ -61,7 +61,7 @@ get("/scissors") do
     decision = "won"
   elsif (random_number == 3)
     move = "scissors"
-    decision = "tie"
+    decision = "tied"
   end
 
   @output = "They played #{move}!"
