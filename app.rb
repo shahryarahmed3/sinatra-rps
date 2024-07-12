@@ -1,9 +1,71 @@
 require "sinatra"
 require "sinatra/reloader"
+require "http"
 
 get("/") do
-  "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+
+  erb(:home)
+end
+
+get("/rock") do
+  random_number = rand(1..3)
+  move = ""
+  decision = ""
+  if (random_number == 1)
+    move = "rock"
+    decision = "tie"
+  elsif (random_number == 2)
+    move = "paper"
+    decision = "lost"
+  elsif (random_number == 3)
+    move = "scissors"
+    decision = "won"
+  end
+
+  @output = "They played #{move}!"
+  @output_1 = "We #{decision}!"
+
+  erb(:rock)
+end
+
+get("/paper") do
+  random_number = rand(1..3)
+  move = ""
+  decision = ""
+  if (random_number == 1)
+    move = "rock"
+    decision = "won"
+  elsif (random_number == 2)
+    move = "paper"
+    decision = "tie"
+  elsif (random_number == 3)
+    move = "scissors"
+    decision = "lost"
+  end
+
+  @output = "They played #{move}!"
+  @output_1 = "We #{decision}!"
+
+  erb(:paper)
+end
+
+get("/scissors") do
+  random_number = rand(1..3)
+  move = ""
+  decision = ""
+  if (random_number == 1)
+    move = "rock"
+    decision = "lost"
+  elsif (random_number == 2)
+    move = "paper"
+    decision = "won"
+  elsif (random_number == 3)
+    move = "scissors"
+    decision = "tie"
+  end
+
+  @output = "They played #{move}!"
+  @output_1 = "We #{decision}!"
+
+  erb(:scissors)
 end
